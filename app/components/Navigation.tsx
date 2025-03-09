@@ -17,8 +17,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-800">
-      <div className="flex justify-around items-center h-20">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+      <div className="flex justify-around items-center h-16 max-w-screen-xl mx-auto">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -26,12 +26,11 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`flex flex-col items-center justify-center w-full h-full ${
-                isActive ? 'text-blue-500' : 'text-white'
+              className={`flex items-center justify-center w-full h-full ${
+                isActive ? 'text-blue-500' : 'text-black'
               }`}
             >
-              <Icon className="w-8 h-8" />
-              <span className="text-sm mt-2 font-medium">{tab.name}</span>
+              <Icon className="w-7 h-7" />
             </button>
           );
         })}
